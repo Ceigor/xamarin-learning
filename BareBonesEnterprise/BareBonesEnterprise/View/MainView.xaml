@@ -4,15 +4,18 @@
              xmlns:local="clr-namespace:BareBonesEnterprise.ViewModel"
              xmlns:viewModelBase ="clr-namespace:BareBonesEnterprise.ViewModel.Base"
              viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             xmlns:behavior="clr-namespace:BareBonesEnterprise.Behavior"
              x:Class="BareBonesEnterprise.View.MainView"
              Title="BareBonesEnterprise"
              Padding="8,8">
     <StackLayout>
         <Button Text="Authors" Style="{StaticResource MenuButtonStyle}" Clicked="OnAuthorsClicked"></Button>
         <Button Text="Categories" Style="{StaticResource MenuButtonStyle}" Clicked="OnCategoriesClicked"></Button>
-        <Button Text="Quotes" Style="{StaticResource MenuButtonStyle}" Clicked="OnQuotesClicked">
+        <Button Text="Quotes" Style="{StaticResource MenuButtonStyle}">
             <Button.Behaviors>
-                <behaviours
+                <behavior:EventToCommandBehavior
+                    EventName="Navigating"
+                    Command="{Binding NavigateCommand}" />
             </Button.Behaviors>
         </Button>
     </StackLayout>

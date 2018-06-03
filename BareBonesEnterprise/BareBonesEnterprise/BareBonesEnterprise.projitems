@@ -16,6 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior\Base\BindableBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior\EventToCommandBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\InvalidTypeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\NoSuchViewException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\NoSuchViewModelException.cs" />

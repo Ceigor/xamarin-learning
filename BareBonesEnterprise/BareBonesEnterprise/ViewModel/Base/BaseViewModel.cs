@@ -6,16 +6,22 @@ namespace BareBonesEnterprise.ViewModel.Base
 {
     public abstract class BaseViewModel : ExtendedBindableObject
     {
-        public INavigationService NavigationService { get; }
-       
+        private readonly INavigationService navigationService;
+
+
         public BaseViewModel()
         {
-            NavigationService = LocatorViewModel.Resolve<INavigationService>();
+            navigationService = LocatorViewModel.Resolve<INavigationService>();
         }
 
         public virtual Task InitializeAsync(object parameter)
         {
             return Task.FromResult(false);
+        }
+
+        public Task NavigateToAsync<ViewModel>() where ViewModel : BaseViewModel
+        {
+            return navigationService.NavigateToAsync<ViewModel>();
         }
     }
 }

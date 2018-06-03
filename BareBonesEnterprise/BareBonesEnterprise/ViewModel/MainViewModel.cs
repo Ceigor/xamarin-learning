@@ -1,4 +1,5 @@
-﻿using BareBonesEnterprise.View;
+﻿using BareBonesEnterprise.Service.Implementation;
+using BareBonesEnterprise.View;
 using BareBonesEnterprise.ViewModel.Base;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -26,7 +27,7 @@ namespace BareBonesEnterprise.ViewModel
         private Task NavigateAsync(int index)
         {
             Debug.WriteLine(index);
-            return NavigationService.NavigateToAsync<QuotesViewModel>();
+            return NavigateToAsync<QuotesViewModel>();
         }
 
 
