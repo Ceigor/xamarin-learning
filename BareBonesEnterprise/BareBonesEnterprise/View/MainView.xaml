@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BareBonesEnterprise.ViewModel"
+             xmlns:viewModelBase ="clr-namespace:BareBonesEnterprise.ViewModel.Base"
+             viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             x:Class="BareBonesEnterprise.View.MainView"
+             Title="BareBonesEnterprise"
+             Padding="8,8">
+    <StackLayout>
+        <Button Text="Authors" Style="{StaticResource MenuButtonStyle}" Clicked="OnAuthorsClicked"></Button>
+        <Button Text="Categories" Style="{StaticResource MenuButtonStyle}" Clicked="OnCategoriesClicked"></Button>
+        <Button Text="Quotes" Style="{StaticResource MenuButtonStyle}" Clicked="OnQuotesClicked">
+            <Button.Behaviors>
+                <behaviours
+            </Button.Behaviors>
+        </Button>
+    </StackLayout>
+
+</ContentPage>
