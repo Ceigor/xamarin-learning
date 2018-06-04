@@ -4,12 +4,7 @@
              x:Class="BareBonesEnterprise.View.AuthorsView"
              xmlns:view="clr-namespace:BareBonesEnterprise.View"
              xmlns:viewModelBase ="clr-namespace:BareBonesEnterprise.ViewModel.Base"
-             xmlns:behavior="clr-namespace:BareBonesEnterprise.Behavior"
-             xmlns:converter="clr-namespace:BareBonesEnterprise.Converter"
              viewModelBase:LocatorViewModel.AutowireViewModel="true">
-    <ContentPage.Resources>
-        <converter:SelectedItemConverter x:Key="SelectedItemConverter"/>
-    </ContentPage.Resources>
     <ListView x:Name="Authors" ItemsSource="{Binding Authors}" HasUnevenRows="True">
         <!--ListView.Behaviors>
             <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding AuthorSelectedCommand}" Converter="{StaticResource SelectedItemConverter}"/>

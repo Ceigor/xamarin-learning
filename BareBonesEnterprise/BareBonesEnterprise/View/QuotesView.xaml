@@ -6,7 +6,8 @@
              xmlns:viewModelBase ="clr-namespace:BareBonesEnterprise.ViewModel.Base"
              xmlns:behavior="clr-namespace:BareBonesEnterprise.Behavior"
              xmlns:converter="clr-namespace:BareBonesEnterprise.Converter"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true">
+             viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             Padding="{StaticResource SmallPadding}">
     <ContentPage.Resources>
         <converter:SelectedItemConverter x:Key="SelectedItemConverter"/>
     </ContentPage.Resources>

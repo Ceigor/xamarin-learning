@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xamarin.Forms;
 
 namespace BareBonesEnterprise.Behavior
@@ -16,8 +14,6 @@ namespace BareBonesEnterprise.Behavior
             AssociatedObject = bindable;
             if (bindable.BindingContext != null)
                 BindingContext = bindable.BindingContext;
-            else
-                Debug.WriteLine("associatedObject has null binding context...");
             bindable.BindingContextChanged += OnBindingContextChanged;
         }
 
@@ -37,7 +33,6 @@ namespace BareBonesEnterprise.Behavior
         {
             base.OnBindingContextChanged();
             BindingContext = AssociatedObject.BindingContext;
-            Debug.WriteLine("Final binding context of bindable = " + BindingContext);
         }
     }
 }

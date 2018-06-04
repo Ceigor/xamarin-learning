@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resx\AppResources.resx" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainView.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -18,7 +19,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Behavior\BehaviorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behavior\EventToCommandBehavior.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Behavior\NavigateToQuoteBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\SelectedItemConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\InvalidTypeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\NoSuchViewException.cs" />
@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\AuthorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\QuoteService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TranslateExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AuthorsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\ExtendedBindableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\BaseViewModel.cs" />
