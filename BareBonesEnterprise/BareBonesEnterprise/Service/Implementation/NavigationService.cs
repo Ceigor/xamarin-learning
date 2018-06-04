@@ -31,9 +31,11 @@ namespace BareBonesEnterprise.Service.Implementation
         private async Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
             Page page = CreatePage(viewModelType);
+            Debug.WriteLine("IInternalNavigateToAsync()");
             var navigationPage = Application.Current.MainPage as NavigationPage;
             if (navigationPage != null)
             {
+                Debug.WriteLine("Pushing page = " + page);
                 await navigationPage.PushAsync(page);
             }
             else
@@ -53,7 +55,7 @@ namespace BareBonesEnterprise.Service.Implementation
         {
             var viewName = viewModelType.FullName.Replace("Model", string.Empty);
             var viewModelAssemblyName = viewModelType.GetTypeInfo().Assembly.FullName;
-            var viewAssemblyName = string.Format(CultureInfo.InvariantCulture, "{0}. {1}", viewName, viewModelAssemblyName);
+            var viewAssemblyName = string.Format(CultureInfo.InvariantCulture, "{0}, {1}", viewName, viewModelAssemblyName);
             var viewType = Type.GetType(viewAssemblyName);
             if (viewType == null)
             {

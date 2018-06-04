@@ -15,10 +15,5 @@ namespace BareBonesEnterprise.View
             InitializeComponent();
         }
 
-        public void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-           
-        }
-
     }
 }

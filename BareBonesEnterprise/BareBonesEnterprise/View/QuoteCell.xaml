@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BareBonesEnterprise.View.QuoteCell">
   <ViewCell.View>
-        <StackLayout HorizontalOptions="CenterAndExpand">
-          <Label Text="{Binding Content}" Style="{StaticResource TitleStyle}"/>
-           <Label Text="{Binding Author}" Style="{StaticResource DescriptionStyle}"/>
+        <StackLayout BackgroundColor="Black" Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <Label Text="{Binding Content}" Style="{StaticResource DescriptionStyle}" HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Author}" Style="{StaticResource TitleStyle}" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
   </ViewCell.View>
 </ViewCell>

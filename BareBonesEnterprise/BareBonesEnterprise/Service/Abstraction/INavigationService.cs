@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BareBonesEnterprise.Service.Abstraction
 {
-    interface INavigationService
+    public interface INavigationService
     {
         Task InitializeAsync();
         Task NavigateToAsync<ViewModel>() where ViewModel : BaseViewModel;

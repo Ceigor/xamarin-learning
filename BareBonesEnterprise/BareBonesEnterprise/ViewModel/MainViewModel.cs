@@ -1,7 +1,4 @@
-﻿using BareBonesEnterprise.Service.Implementation;
-using BareBonesEnterprise.View;
-using BareBonesEnterprise.ViewModel.Base;
-using System.Collections.Generic;
+﻿using BareBonesEnterprise.ViewModel.Base;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,23 +8,34 @@ namespace BareBonesEnterprise.ViewModel
 {
     class MainViewModel : BaseViewModel
     {
-        public List<Page> MainViews { get; }
-        public ICommand NavigateCommand => new Command<int>((index) => NavigateAsync(index));
+     
+        public ICommand NavigateToAuthorsCommand { get; private set; }
+        public ICommand NavigateToCategoriesCommand { get; private set; }
+        public ICommand NavigateToQuotesCommand { get; private set; }
 
         public MainViewModel()
         {
-            MainViews = new List<Page>()
-            {
-                new AuthorsView(),
-                new CategoriesView(),
-                new QuotesView()
-            };
+            NavigateToAuthorsCommand = new Command(async () => await AuthorsAsync());
+            NavigateToCategoriesCommand = new Command(async () => await CategoriesAsync());
+            NavigateToQuotesCommand = new Command(async() => await QuotesAsync());
         }
 
-        private Task NavigateAsync(int index)
+        private async Task AuthorsAsync()
         {
-            Debug.WriteLine(index);
-            return NavigateToAsync<QuotesViewModel>();
+            Debug.WriteLine("navigationService.NavigateToAsync<AuthorsViewModel>()");
+            await navigationService.NavigateToAsync<AuthorsViewModel>();
+        }
+
+        private async Task CategoriesAsync()
+        {
+            Debug.WriteLine("navigationService.NavigateToAsync<CategoriesViewModel>()");
+            await navigationService.NavigateToAsync<CategoriesViewModel>();
+        }
+
+        private async Task QuotesAsync()
+        {
+            Debug.WriteLine("navigationService.NavigateToAsync<QuotesViewModel>()");
+            await navigationService.NavigateToAsync<QuotesViewModel>();
         }
 
 

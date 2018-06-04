@@ -5,7 +5,7 @@ using System.Text;
 namespace BareBonesEnterprise.Model
 {
 
-    class Quote
+    public class Quote
     {
         public string Content { get; }
         public string Author { get; }

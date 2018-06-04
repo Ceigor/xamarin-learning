@@ -8,11 +8,11 @@
             <Color x:Key="Primary">#296bd8</Color>
             <Color x:Key="Accent">#840606</Color>
             <Style x:Key="TitleStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                <Setter Property="TextColor" Value="{StaticResource Accent}"/>
                 <Setter Property="FontSize" Value="24"/>
             </Style>
             <Style x:Key="DescriptionStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="#262626"/>
+                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="16"/>
             </Style>
             <Style x:Key="MenuButtonStyle" TargetType="Button">

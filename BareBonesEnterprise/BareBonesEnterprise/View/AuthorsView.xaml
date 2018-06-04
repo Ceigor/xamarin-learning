@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BareBonesEnterprise.View.AuthorsView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="BareBonesEnterprise.View.AuthorsView"
+             xmlns:view="clr-namespace:BareBonesEnterprise.View"
+             xmlns:viewModelBase ="clr-namespace:BareBonesEnterprise.ViewModel.Base"
+             xmlns:behavior="clr-namespace:BareBonesEnterprise.Behavior"
+             xmlns:converter="clr-namespace:BareBonesEnterprise.Converter"
+             viewModelBase:LocatorViewModel.AutowireViewModel="true">
+    <ContentPage.Resources>
+        <converter:SelectedItemConverter x:Key="SelectedItemConverter"/>
+    </ContentPage.Resources>
+    <ListView x:Name="Authors" ItemsSource="{Binding Authors}" HasUnevenRows="True">
+        <!--ListView.Behaviors>
+            <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding AuthorSelectedCommand}" Converter="{StaticResource SelectedItemConverter}"/>
+        </-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <view:AuthorCell/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

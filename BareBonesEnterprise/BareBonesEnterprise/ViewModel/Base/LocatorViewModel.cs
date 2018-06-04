@@ -19,9 +19,12 @@ namespace BareBonesEnterprise.ViewModel.Base
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<NavigationService>().As<INavigationService>();
-             builder.RegisterType<QuoteService>().As<IQuoteService>();
+            builder.RegisterType<QuoteService>().As<IQuoteService>();
+            builder.RegisterType<AuthorService>().As<IAuthorService>();
             builder.RegisterType<MainViewModel>();
             builder.RegisterType<QuotesViewModel>();
+            builder.RegisterType<AuthorsViewModel>();
+            builder.RegisterType<CategoriesViewModel>();
             builder.RegisterType<QuoteViewModel>();
             container = builder.Build();
         }

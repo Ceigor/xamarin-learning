@@ -16,23 +16,33 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Behavior\Base\BindableBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior\BehaviorBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Behavior\EventToCommandBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior\NavigateToQuoteBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converter\SelectedItemConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\InvalidTypeException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\NoSuchViewException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exception\NoSuchViewModelException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Author.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Quote.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Abstraction\IAuthorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Abstraction\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Abstraction\IQuoteService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\AuthorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Implementation\QuoteService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AuthorsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\ExtendedBindableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Base\LocatorViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\CategoriesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuotesViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\QuoteViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\AuthorCell.xaml.cs">
+      <DependentUpon>AuthorCell.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\AuthorsView.xaml.cs">
       <DependentUpon>AuthorsView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -83,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\QuoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\AuthorCell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

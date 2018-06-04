@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BareBonesEnterprise.Model
 {
-    class Author
+    public class Author
     {
-        public string name { get; }
-        public Image image { get; }
-        public List<Quote> quotes { get; }
+        public string Name { get; }
+        public ImageSource ImageSource { get; }
+        public List<Quote> Quotes { get; }
 
-        public Author(string name, Image image, List<Quote> quotes)
+        public Author(string name, ImageSource imageSource)
         {
-            this.name = name;
-            this.image = image;
-            this.quotes = quotes;
+            Name = name;
+            ImageSource = imageSource;
         }
     }
 }
