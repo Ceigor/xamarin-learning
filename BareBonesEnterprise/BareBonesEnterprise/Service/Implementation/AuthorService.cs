@@ -1,5 +1,6 @@
 ﻿using BareBonesEnterprise.Model;
 using BareBonesEnterprise.Service.Abstraction;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
@@ -8,6 +9,7 @@ namespace BareBonesEnterprise.Service.Implementation
     class AuthorService : IAuthorService
     {
         private readonly int MOCKED_AUTHORS = 100;
+        private readonly Random RANDOM = new Random();
 
         public List<Author> GetAuthors()
         {
@@ -17,11 +19,21 @@ namespace BareBonesEnterprise.Service.Implementation
         private List<Author> MockAuthors()
         {
             var authors = new List<Author>();
-            var imageSource = Device.RuntimePlatform == Device.Android ? ImageSource.FromFile("tmp.jpg") : ImageSource.FromFile("Images/tmp.jpg");
-            var authorToPopulateAuthors = new Author("Cycero", imageSource);
+            var authorsToPopulateAuthors = new List<Author>()
+            {
+                new Author("Atlas", ImageSource.FromFile("atlas.jpg")),
+                new Author("Spiderman", ImageSource.FromFile("spiderman.png")),
+                new Author("Tesla", ImageSource.FromFile("tesla.jpg")),
+                new Author("Tmp", ImageSource.FromFile("tmp.jpg"))
+            };
             for (var i = 0; i < MOCKED_AUTHORS; i++)
-                authors.Add(authorToPopulateAuthors);
+                authors.Add(GetRandomAuthor(authorsToPopulateAuthors));
             return authors;
+        }
+
+        private Author GetRandomAuthor(List<Author> authors)
+        {
+            return authors[RANDOM.Next(0, authors.Count)];
         }
     }
 }

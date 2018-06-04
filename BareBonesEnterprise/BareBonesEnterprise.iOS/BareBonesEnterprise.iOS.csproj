@@ -155,6 +155,15 @@
   <ItemGroup>
     <BundleResource Include="Resources\tmp.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\atlas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\spiderman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tesla.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\BareBonesEnterprise\BareBonesEnterprise.projitems" Label="Shared" />
 </Project>

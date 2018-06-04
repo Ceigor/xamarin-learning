@@ -95,6 +95,15 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\tmp.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\atlas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\spiderman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\tesla.jpg" />
+  </ItemGroup>
   <Import Project="..\BareBonesEnterprise\BareBonesEnterprise.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
