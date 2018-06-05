@@ -63,5 +63,27 @@ namespace QuotesApp.Service.Implementation
             }
             return viewType;
         }
+
+        public Task RemoveCurrentFromBackStackAsync()
+        {
+            var mainPage = Application.Current.MainPage as NavigationPage;
+            if (!(Application.Current.MainPage is NavigationPage))
+                throw InvalidTypeException.CreateExpectedActualException(typeof(NavigationPage), Application.Current.MainPage.GetType());
+            mainPage.Navigation.RemovePage(mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 1]);
+            return Task.FromResult(true);
+        }
+
+        public Task ClearBackStackAsync()
+        {
+            var mainPage = Application.Current.MainPage as NavigationPage;
+            if (!(Application.Current.MainPage is NavigationPage))
+                throw InvalidTypeException.CreateExpectedActualException(typeof(NavigationPage), Application.Current.MainPage.GetType());
+            for(int i = 0; i < mainPage.Navigation.NavigationStack.Count - 1; i++)
+            {
+                var page = mainPage.Navigation.NavigationStack[i];
+                mainPage.Navigation.RemovePage(page);
+            }
+            return Task.FromResult(true);
+        }
     }
 }

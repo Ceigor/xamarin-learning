@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              viewModelBase:LocatorViewModel.AutowireViewModel="true"
-             x:Class="QuotesApp.View.CategoriesView">
+             xmlns:local="clr-namespace:QuotesApp"
+             x:Class="QuotesApp.View.CategoriesView"
+             Title="{local:Translate Categories}">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuotesApp.View.AuthorCell">
     <ViewCell.View>
-        <StackLayout BackgroundColor="Black" Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="Black" Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="{StaticResource CellPadding}">
             <Image Source="{Binding ImageSource}" HorizontalOptions="CenterAndExpand" />
             <Label Text="{Binding Name}" Style="{StaticResource TitleStyle}" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>

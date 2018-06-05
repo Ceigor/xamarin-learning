@@ -126,4 +126,7 @@
   <data name="Quotes" xml:space="preserve">
     <value>Quotes</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

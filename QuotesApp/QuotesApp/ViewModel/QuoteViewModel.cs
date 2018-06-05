@@ -3,6 +3,8 @@ using QuotesApp.Model;
 using QuotesApp.ViewModel.Base;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace QuotesApp.ViewModel
 {
@@ -22,17 +24,25 @@ namespace QuotesApp.ViewModel
                 }
             }
         }
+        public ICommand SaveQuoteCommand { get; private set; }
+
+        public QuoteViewModel()
+        {
+            SaveQuoteCommand = new Command(async() => await QuoteSavedAsync());
+        }
 
         public override Task InitializeAsync(object quote)
         {
             if(!(quote is Quote))
-            {
-                var actualType = quote == null ? null : quote.GetType();
-                throw new InvalidTypeException(typeof(Quote), actualType);
-            }
+                throw InvalidTypeException.CreateExpectedActualException(typeof(Quote), quote?.GetType());
             Quote = quote as Quote;
-            Debug.WriteLine("Initializing quote");
             return base.InitializeAsync(quote);
+        }
+
+        private async Task QuoteSavedAsync()
+        {
+            Debug.WriteLine("Would save quote: " +Quote);
+            await navigationService.RemoveCurrentFromBackStackAsync();
         }
 
     }

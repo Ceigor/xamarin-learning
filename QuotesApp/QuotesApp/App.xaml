@@ -32,6 +32,7 @@
                 <On Platform="Android" Value="8"/>
             </OnPlatform>
             <Thickness x:Key="SmallPadding">8,8,8,8</Thickness>
+            <Thickness x:Key="CellPadding">4,4,4,4</Thickness>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="Padding" Value="{StaticResource SmallPadding}"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
@@ -44,12 +45,22 @@
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
             </Style>
+            <Style x:Key="QuoteDescriptionStyle" TargetType="Label" BasedOn="DescriptionStyle">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="DescriptionInputStyle" TargetType="Editor">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
+                <!--Setter Property="HeightRequest" Value="100"/-->
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
             <Style x:Key="MenuButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="White"/>
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
                 <Setter Property="BorderRadius" Value="{StaticResource MediumSize}"/>
-                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderColor" Value="Black"/>
             </Style>
         </ResourceDictionary>

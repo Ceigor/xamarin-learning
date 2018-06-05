@@ -4,7 +4,9 @@
              x:Class="QuotesApp.View.AuthorsView"
              xmlns:view="clr-namespace:QuotesApp.View"
              xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true">
+             xmlns:local="clr-namespace:QuotesApp"
+             viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             Title="{local:Translate Authors}">
     <ListView x:Name="Authors" ItemsSource="{Binding Authors}" HasUnevenRows="True">
         <!--ListView.Behaviors>
             <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding AuthorSelectedCommand}" Converter="{StaticResource SelectedItemConverter}"/>

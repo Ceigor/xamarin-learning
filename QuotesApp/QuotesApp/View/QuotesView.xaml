@@ -6,8 +6,10 @@
              xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:behavior="clr-namespace:QuotesApp.Behavior"
              xmlns:converter="clr-namespace:QuotesApp.Converter"
+             xmlns:local="clr-namespace:QuotesApp"
              viewModelBase:LocatorViewModel.AutowireViewModel="true"
-             Padding="{StaticResource SmallPadding}">
+             Padding="{StaticResource SmallPadding}"
+             Title="{local:Translate Quotes}">
     <ContentPage.Resources>
         <converter:SelectedItemConverter x:Key="SelectedItemConverter"/>
     </ContentPage.Resources>
