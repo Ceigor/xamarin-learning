@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuotesApp.View.TextToSpeechToTextView"
+             xmlns:view="clr-namespace:QuotesApp.View"
+             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
+             xmlns:behavior="clr-namespace:QuotesApp.Behavior"
+             xmlns:converter="clr-namespace:QuotesApp.Converter"
+             xmlns:local="clr-namespace:QuotesApp"
+             viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             Padding="{StaticResource SmallPadding}"
+             Title="{local:Translate TextToSpeechToText}">
+    <ContentPage.Content>
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical">
+            <Editor Text="{Binding ToSpeak}" Style="{StaticResource DescriptionInputStyle}"/>
+            <Button Text="{local:Translate Speak}" Style="{StaticResource MenuButtonStyle}">
+                <Button.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding SpeakCommand}" />
+                </Button.Behaviors>
+            </Button>
+        </StackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

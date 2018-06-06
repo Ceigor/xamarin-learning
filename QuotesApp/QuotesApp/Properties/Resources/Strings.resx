@@ -144,4 +144,10 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Speak" xml:space="preserve">
+    <value>Speak</value>
+  </data>
+  <data name="TextSpeechText" xml:space="preserve">
+    <value>Text to speech to text</value>
+  </data>
 </root>

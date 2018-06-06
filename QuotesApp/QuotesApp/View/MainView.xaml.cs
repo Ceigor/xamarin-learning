@@ -11,20 +11,5 @@ namespace QuotesApp.View
 		{
 			InitializeComponent();
 		}
-
-        void OnAuthorsClicked(object sender, EventArgs args)
-        {
-            this.Navigation.PushAsync(new AuthorsView());
-        }
-
-        void OnCategoriesClicked(object sender, EventArgs args)
-        {
-            this.Navigation.PushAsync(new CategoriesView());
-        }
-
-        void OnQuotesClicked(object sender, EventArgs args)
-        {
-            this.Navigation.PushAsync(new QuotesView());
-        }
     }
 }

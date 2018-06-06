@@ -140,5 +140,23 @@ namespace QuotesApp.Properties.Resources {
                 return ResourceManager.GetString("Save", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speak.
+        /// </summary>
+        internal static string Speak {
+            get {
+                return ResourceManager.GetString("Speak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text to speech to text.
+        /// </summary>
+        internal static string TextSpeechText {
+            get {
+                return ResourceManager.GetString("TextSpeechText", resourceCulture);
+            }
+        }
     }
 }

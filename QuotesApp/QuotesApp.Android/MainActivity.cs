@@ -12,6 +12,8 @@ namespace QuotesApp.Droid
     [Activity(Label = "QuotesApp", Icon = "@mipmap/icon", Theme = "@style/SplashScreenTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        internal static MainActivity Instance { get; private set; }
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -19,6 +21,7 @@ namespace QuotesApp.Droid
             base.SetTheme(Resource.Style.MainTheme);
             base.Window.RequestFeature(WindowFeatures.ActionBar);
             base.OnCreate(bundle);
+            Instance = this;
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

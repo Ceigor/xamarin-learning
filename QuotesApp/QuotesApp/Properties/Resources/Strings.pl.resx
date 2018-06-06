@@ -144,4 +144,10 @@
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
   </data>
+  <data name="Speak" xml:space="preserve">
+    <value>Mów</value>
+  </data>
+  <data name="TextSpeechText" xml:space="preserve">
+    <value>Tekst na mowę, mowa na tekst</value>
+  </data>
 </root>
