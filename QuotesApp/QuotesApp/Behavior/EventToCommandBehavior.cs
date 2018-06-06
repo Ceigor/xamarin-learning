@@ -56,7 +56,7 @@ namespace QuotesApp.Behavior
             if (string.IsNullOrWhiteSpace(name))
                 return;
             EventInfo eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
-            Debug.WriteLine("AssociatedObject button type = " + AssociatedObject.GetType().FullName);
+            Debug.WriteLine("AssociatedObject view type = " + AssociatedObject.GetType().FullName);
             if (eventInfo == null)
             {
                 throw new ArgumentException(string.Format("EventToCommandBehavior: Can't register the '{0}' event.", EventName));

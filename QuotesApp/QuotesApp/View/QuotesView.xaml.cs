@@ -1,7 +1,6 @@
 ﻿using QuotesApp.Message;
 using QuotesApp.Model;
 using QuotesApp.ViewModel;
-using System.Diagnostics;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
