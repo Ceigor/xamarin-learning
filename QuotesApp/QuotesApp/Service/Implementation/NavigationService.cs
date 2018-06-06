@@ -66,19 +66,32 @@ namespace QuotesApp.Service.Implementation
 
         public Task RemoveCurrentFromBackStackAsync()
         {
-            var mainPage = Application.Current.MainPage as NavigationPage;
-            if (!(Application.Current.MainPage is NavigationPage))
-                throw InvalidTypeException.CreateExpectedActualException(typeof(NavigationPage), Application.Current.MainPage.GetType());
-            mainPage.Navigation.RemovePage(mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 1]);
-            return Task.FromResult(true);
+            return GetMainPage().Navigation.PopModalAsync();
         }
 
-        public Task ClearBackStackAsync()
+        private NavigationPage GetMainPage()
         {
             var mainPage = Application.Current.MainPage as NavigationPage;
             if (!(Application.Current.MainPage is NavigationPage))
                 throw InvalidTypeException.CreateExpectedActualException(typeof(NavigationPage), Application.Current.MainPage.GetType());
-            for(int i = 0; i < mainPage.Navigation.NavigationStack.Count - 1; i++)
+            return mainPage;
+        }
+
+        public Task RemoveCurrentFromBackStackAsync(object data)
+        {
+            var mainPage = GetMainPage();
+            var previousPage = mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 2];
+            var previousPageViewModel = previousPage.BindingContext as IEditableItemViewModel;
+            if (previousPageViewModel == null)
+                throw InvalidTypeException.CreateExpectedActualException(typeof(IEditableItemViewModel), previousPageViewModel?.GetType());
+            previousPageViewModel.SetChanged(data);
+            return mainPage.Navigation.PopAsync();
+        }
+
+        public Task ClearBackStackAsync()
+        {
+            var mainPage = GetMainPage();
+            for (int i = 0; i < mainPage.Navigation.NavigationStack.Count - 1; i++)
             {
                 var page = mainPage.Navigation.NavigationStack[i];
                 mainPage.Navigation.RemovePage(page);

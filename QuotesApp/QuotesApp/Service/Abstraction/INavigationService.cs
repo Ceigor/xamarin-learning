@@ -9,6 +9,7 @@ namespace QuotesApp.Service.Abstraction
         Task NavigateToAsync<ViewModel>() where ViewModel : BaseViewModel;
         Task NavigateToAsync<ViewModel>(object parameter) where ViewModel : BaseViewModel;
         Task RemoveCurrentFromBackStackAsync();
+        Task RemoveCurrentFromBackStackAsync(object data);
         Task ClearBackStackAsync();
     }
 }

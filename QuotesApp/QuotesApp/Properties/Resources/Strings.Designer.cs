@@ -70,6 +70,15 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         internal static string Categories {
@@ -79,11 +88,29 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quotes.
         /// </summary>
         internal static string Quotes {
             get {
                 return ResourceManager.GetString("Quotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quote Updated.
+        /// </summary>
+        internal static string QuoteUpdated {
+            get {
+                return ResourceManager.GetString("QuoteUpdated", resourceCulture);
             }
         }
         

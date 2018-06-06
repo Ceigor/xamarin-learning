@@ -21,5 +21,21 @@ namespace QuotesApp.Model
             return "content: " + Content + ", Author:" + Author;
         }
 
+        public override bool Equals(object obj)
+        {
+            var quote = obj as Quote;
+            return quote != null &&
+                    ((this == quote) ||
+                   (Content == quote.Content &&
+                   Author == quote.Author));
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 211671080;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Content);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Author);
+            return hashCode;
+        }
     }
 }

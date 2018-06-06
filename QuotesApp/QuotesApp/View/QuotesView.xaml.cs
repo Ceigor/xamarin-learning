@@ -1,4 +1,5 @@
-﻿using QuotesApp.Model;
+﻿using QuotesApp.Message;
+using QuotesApp.Model;
 using QuotesApp.ViewModel;
 using System.Diagnostics;
 
@@ -13,6 +14,16 @@ namespace QuotesApp.View
         public QuotesView()
         {
             InitializeComponent();
+            SetSubscription();
+        }
+
+        private void SetSubscription()
+        {
+            MessagingCenter.Subscribe<QuoteViewModel, Quote>(
+               this, MessagesKeys.QUOTE_CHANGED, async (sender, arg) =>
+               {
+                   await DisplayAlert(Properties.Resources.Strings.QuoteUpdated, arg.Content, Properties.Resources.Strings.Ok);
+               });
         }
 
     }

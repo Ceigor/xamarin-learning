@@ -1,6 +1,8 @@
 ﻿using QuotesApp.Exception;
+using QuotesApp.Message;
 using QuotesApp.Model;
 using QuotesApp.ViewModel.Base;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -42,7 +44,8 @@ namespace QuotesApp.ViewModel
         private async Task QuoteSavedAsync()
         {
             Debug.WriteLine("Would save quote: " +Quote);
-            await navigationService.RemoveCurrentFromBackStackAsync();
+            MessagingCenter.Send(this, MessagesKeys.QUOTE_CHANGED, Quote);
+            await navigationService.RemoveCurrentFromBackStackAsync(Quote);
         }
 
     }
