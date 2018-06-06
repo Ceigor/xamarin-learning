@@ -21,10 +21,12 @@ namespace QuotesApp.ViewModel.Base
             builder.RegisterType<NavigationService>().As<INavigationService>();
             builder.RegisterType<QuoteService>().As<IQuoteService>();
             builder.RegisterType<AuthorService>().As<IAuthorService>();
+            builder.RegisterType<HttpService>().As<IHttpService>();
             builder.RegisterType<MainViewModel>();
             builder.RegisterType<QuotesViewModel>();
             builder.RegisterType<AuthorsViewModel>();
             builder.RegisterType<CategoriesViewModel>();
+            builder.RegisterType<RestTestViewModel>();
             builder.RegisterType<QuoteViewModel>();
             container = builder.Build();
         }

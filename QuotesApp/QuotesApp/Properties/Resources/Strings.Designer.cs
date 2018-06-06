@@ -61,6 +61,15 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ask Rest.
+        /// </summary>
+        internal static string AskRest {
+            get {
+                return ResourceManager.GetString("AskRest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authors.
         /// </summary>
         internal static string Authors {
@@ -111,6 +120,15 @@ namespace QuotesApp.Properties.Resources {
         internal static string QuoteUpdated {
             get {
                 return ResourceManager.GetString("QuoteUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Rest.
+        /// </summary>
+        internal static string RestTest {
+            get {
+                return ResourceManager.GetString("RestTest", resourceCulture);
             }
         }
         

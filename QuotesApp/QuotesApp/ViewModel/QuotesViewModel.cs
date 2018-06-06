@@ -14,7 +14,7 @@ namespace QuotesApp.ViewModel
     class QuotesViewModel : BaseViewModel, IEditableItemViewModel
     {
         public ICommand QuoteSelectedCommand { get; private set; }
-        private IQuoteService quoteService;
+        private IQuoteService QuoteService;
         private ObservableCollection<Quote> quotes;
         public ObservableCollection<Quote> Quotes
         {
@@ -30,9 +30,9 @@ namespace QuotesApp.ViewModel
 
         public QuotesViewModel(IQuoteService quoteService)
         {
-            this.quoteService = quoteService;
+            QuoteService = quoteService;
             var quotes = new ObservableCollection<Quote>();
-            quoteService.GetQuotes().ForEach(quotes.Add);
+            QuoteService.GetQuotes().ForEach(quotes.Add);
             Quotes = quotes;
             QuoteSelectedCommand = new Command(async (quote) => await QuoteAsync(quote));
         }

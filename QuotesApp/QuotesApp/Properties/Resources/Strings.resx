@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AskRest" xml:space="preserve">
+    <value>Ask Rest</value>
+  </data>
   <data name="Authors" xml:space="preserve">
     <value>Authors</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="QuoteUpdated" xml:space="preserve">
     <value>Quote Updated</value>
+  </data>
+  <data name="RestTest" xml:space="preserve">
+    <value>Test Rest</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>

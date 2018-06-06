@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuotesApp.View.RestTestView"
+             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
+             xmlns:local ="clr-namespace:QuotesApp"
+             xmlns:behavior ="clr-namespace:QuotesApp.Behavior"
+             xmlns:view ="clr-namespace:QuotesApp.View"
+             viewModelBase:LocatorViewModel.AutowireViewModel="true">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="RestTestModels" ItemsSource="{Binding RestTestModels}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <view:RestTestCell/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="{local:Translate AskRest}" Style="{StaticResource MenuButtonStyle}">
+                <Button.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding TestRestCommand}" />
+                </Button.Behaviors>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

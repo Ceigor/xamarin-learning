@@ -12,31 +12,17 @@ namespace QuotesApp.ViewModel
         public ICommand NavigateToAuthorsCommand { get; }
         public ICommand NavigateToCategoriesCommand { get; }
         public ICommand NavigateToQuotesCommand { get;  }
+        public ICommand NavigateToRestTestCommand { get; }
 
         public MainViewModel()
         {
-            NavigateToAuthorsCommand = new Command(async () => await AuthorsAsync());
-            NavigateToCategoriesCommand = new Command(async () => await CategoriesAsync());
-            NavigateToQuotesCommand = new Command(async() => await QuotesAsync());
+            NavigateToAuthorsCommand = new Command(async () => await navigationService.NavigateToAsync<AuthorsViewModel>());
+            NavigateToCategoriesCommand = new Command(async () => await navigationService.NavigateToAsync<CategoriesViewModel>());
+            NavigateToQuotesCommand = new Command(async() => await navigationService.NavigateToAsync<QuotesViewModel>());
+            NavigateToRestTestCommand = new Command(async () => await navigationService.NavigateToAsync<RestTestViewModel>());
         }
 
-        private async Task AuthorsAsync()
-        {
-            Debug.WriteLine("navigationService.NavigateToAsync<AuthorsViewModel>()");
-            await navigationService.NavigateToAsync<AuthorsViewModel>();
-        }
-
-        private async Task CategoriesAsync()
-        {
-            Debug.WriteLine("navigationService.NavigateToAsync<CategoriesViewModel>()");
-            await navigationService.NavigateToAsync<CategoriesViewModel>();
-        }
-
-        private async Task QuotesAsync()
-        {
-            Debug.WriteLine("navigationService.NavigateToAsync<QuotesViewModel>()");
-            await navigationService.NavigateToAsync<QuotesViewModel>();
-        }
+ 
 
 
     }
