@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuotesApp.ViewModel;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,5 +12,10 @@ namespace QuotesApp.View
 		{
 			InitializeComponent();
 		}
+
+        public void OnFastClicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new RestTestView());
+        }
     }
 }

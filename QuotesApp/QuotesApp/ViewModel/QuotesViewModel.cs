@@ -22,7 +22,6 @@ namespace QuotesApp.ViewModel
             private set
             {
                 quotes = value;
-                Console.WriteLine("Setting quotes to new value!");
                 RaisePropertyChanged(() => Quotes);
             }
         }
@@ -39,6 +38,10 @@ namespace QuotesApp.ViewModel
 
         private async Task QuoteAsync(object quote)
         {
+            if(quote == null)
+            {
+                return;
+            }
             await navigationService.NavigateToAsync<QuoteViewModel>(quote);
         }
 
@@ -52,7 +55,7 @@ namespace QuotesApp.ViewModel
             var indexOfQuote = quotes.IndexOf(quote);
             Debug.WriteLine("Index of edited quote = " + indexOfQuote);
             Debug.WriteLine("Would change quote = " + Quotes[indexOfQuote]);
-            Quotes[indexOfQuote] = new Quote(quote.Content, quote.Author);
+            //Quotes[indexOfQuote] = new Quote(quote.Content, quote.Author);
             /*//TODO learn how to do this correctly!
             var newQuotes = new ObservableCollection<Quote>();
             for(int i = 0; i < Quotes.Count; i++)

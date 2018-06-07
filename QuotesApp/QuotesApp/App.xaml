@@ -42,7 +42,7 @@
                 <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
             </Style>
             <Style x:Key="DescriptionStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="{StaticResource MediumFontSize}"/>
             </Style>
             <Style x:Key="QuoteDescriptionStyle" TargetType="Label" BasedOn="DescriptionStyle">

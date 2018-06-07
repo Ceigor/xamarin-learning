@@ -97,6 +97,15 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Test ListView.
+        /// </summary>
+        internal static string ListViewTest {
+            get {
+                return ResourceManager.GetString("ListViewTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string Ok {

@@ -13,13 +13,20 @@
     <ContentPage.Resources>
         <converter:SelectedItemConverter x:Key="SelectedItemConverter"/>
     </ContentPage.Resources>
-    <ListView x:Name="Quotes" ItemsSource="{Binding Quotes}" HasUnevenRows="True">
+    <ListView x:Name="QuotesListView" ItemsSource="{Binding Quotes}" HasUnevenRows="True">
         <ListView.Behaviors>
             <behavior:EventToCommandBehavior EventName="ItemSelected" Command="{Binding QuoteSelectedCommand}" Converter="{StaticResource SelectedItemConverter}"/>
         </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate>
-                <view:QuoteCell/>
+                <view:ExtendedViewCell SelectedBackgroundColor="#b1cdf9">
+                    <ViewCell.View>
+                        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="{StaticResource CellPadding}">
+                            <Label Text="{Binding Content}" Style="{StaticResource DescriptionStyle}" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding Author}" Style="{StaticResource TitleStyle}" HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                </ViewCell.View>
+                </view:ExtendedViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

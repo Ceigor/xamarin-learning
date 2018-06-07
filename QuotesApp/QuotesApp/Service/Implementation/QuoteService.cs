@@ -35,7 +35,8 @@ namespace QuotesApp.Service.Implementation
 
         private Quote GetRandomQuote(List<Quote> quotes)
         {
-            return quotes[RANDOM.Next(0, quotes.Count)];
+            var randomQuote = quotes[RANDOM.Next(0, quotes.Count)];
+            return new Quote(randomQuote.Content, randomQuote.Author);
         }
     }
 }

@@ -84,28 +84,22 @@ namespace QuotesApp.Behavior
         void OnEvent(object sender, object eventArgs)
         {
             if (Command == null)
-            {
                 return;
-            }
-
             object resolvedParameter;
             if (CommandParameter != null)
-            {
                 resolvedParameter = CommandParameter;
-            }
             else if (Converter != null)
-            {
                 resolvedParameter = Converter.Convert(eventArgs, typeof(object), null, null);
+            else
+                resolvedParameter = eventArgs;
+            if (Command.CanExecute(resolvedParameter))
+                Command.Execute(resolvedParameter);
+            if (sender is ListView)
+            {
+                Debug.WriteLine("Sender is listView, can diselect...");
             }
             else
-            {
-                resolvedParameter = eventArgs;
-            }
-
-            if (Command.CanExecute(resolvedParameter))
-            {
-                Command.Execute(resolvedParameter);
-            }
+                Debug.WriteLine("Sender is =" + sender.GetType());
         }
 
         static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)

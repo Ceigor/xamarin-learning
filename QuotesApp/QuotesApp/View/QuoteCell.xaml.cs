@@ -1,4 +1,5 @@
 ﻿
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,12 @@ namespace QuotesApp.View
         public QuoteCell()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Debug.WriteLine("Is enabled?" + IsEnabled);
         }
     }
 }

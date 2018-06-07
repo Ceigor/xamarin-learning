@@ -150,4 +150,7 @@
   <data name="TextSpeechText" xml:space="preserve">
     <value>Text to speech to text</value>
   </data>
+  <data name="ListViewTest" xml:space="preserve">
+    <value>Test ListView</value>
+  </data>
 </root>

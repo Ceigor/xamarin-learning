@@ -1,7 +1,7 @@
 ﻿using QuotesApp.Message;
 using QuotesApp.Model;
 using QuotesApp.ViewModel;
-
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -25,5 +25,12 @@ namespace QuotesApp.View
                });
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Debug.WriteLine("Appearing");
+            var listView = Content.FindByName<ListView>("QuotesListView");
+            listView.SelectedItem = null;
+        }
     }
 }
