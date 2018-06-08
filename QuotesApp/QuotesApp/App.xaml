@@ -31,6 +31,10 @@
                 <On Platform="iOS" Value ="8"/>
                 <On Platform="Android" Value="8"/>
             </OnPlatform>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="PlusSize">
+                <On Platform="iOS" Value ="100"/>
+                <On Platform="Android" Value="100"/>
+            </OnPlatform>
             <Thickness x:Key="SmallPadding">8,8,8,8</Thickness>
             <Thickness x:Key="CellPadding">4,4,4,4</Thickness>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
@@ -59,7 +63,7 @@
                 <Setter Property="BackgroundColor" Value="White"/>
                 <Setter Property="TextColor" Value="{StaticResource Primary}"/>
                 <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
-                <Setter Property="BorderRadius" Value="{StaticResource MediumSize}"/>
+                <Setter Property="BorderRadius" Value="15"/>
                 <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="BorderColor" Value="Black"/>
             </Style>

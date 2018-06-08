@@ -97,6 +97,15 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dialog.
+        /// </summary>
+        internal static string DialogTest {
+            get {
+                return ResourceManager.GetString("DialogTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is nothing new to save!.
         /// </summary>
         internal static string NothingNewToSave {

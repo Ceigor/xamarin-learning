@@ -8,5 +8,6 @@ namespace QuotesApp.Message
     {
         public const string QUOTE_CHANGED = "quoteChanged";
         public const string NOTHING_CHANGED = "nothingChanged";
+        public const string HIDE_DIALOG = "hideDialog";
     }
 }
