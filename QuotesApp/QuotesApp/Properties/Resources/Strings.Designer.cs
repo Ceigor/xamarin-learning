@@ -97,11 +97,11 @@ namespace QuotesApp.Properties.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test ListView.
+        ///   Looks up a localized string similar to There is nothing new to save!.
         /// </summary>
-        internal static string ListViewTest {
+        internal static string NothingNewToSave {
             get {
-                return ResourceManager.GetString("ListViewTest", resourceCulture);
+                return ResourceManager.GetString("NothingNewToSave", resourceCulture);
             }
         }
         
@@ -147,6 +147,24 @@ namespace QuotesApp.Properties.Resources {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings Test.
+        /// </summary>
+        internal static string SettingsTest {
+            get {
+                return ResourceManager.GetString("SettingsTest", resourceCulture);
             }
         }
         

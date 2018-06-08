@@ -4,8 +4,8 @@ using Android.Runtime;
 using System.Diagnostics;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(QuotesApp.Droid.TextToSpeechService))]
-namespace QuotesApp.Droid
+[assembly: Dependency(typeof(QuotesApp.Droid.Service.TextToSpeechService))]
+namespace QuotesApp.Droid.Service
 {
     public class TextToSpeechService : Java.Lang.Object, ITextToSpeechService, TextToSpeech.IOnInitListener
     {

@@ -7,5 +7,6 @@ namespace QuotesApp.Message
     class MessagesKeys
     {
         public const string QUOTE_CHANGED = "quoteChanged";
+        public const string NOTHING_CHANGED = "nothingChanged";
     }
 }

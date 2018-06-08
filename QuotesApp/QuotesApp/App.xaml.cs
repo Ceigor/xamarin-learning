@@ -1,3 +1,5 @@
+using QuotesApp.Data;
+using QuotesApp.Service.Abstraction;
 using QuotesApp.View;
 using System;
 using System.Diagnostics;
@@ -9,7 +11,21 @@ namespace QuotesApp
 {
 	public partial class App : Application
 	{
-		public App ()
+
+        private static Database database;
+        public static Database Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new Database(DependencyService.Get<IFileService>().GetLocalFilePath(Database.DATABASE_NAME));
+                }
+                return database;
+            }
+        }
+
+        public App ()
 		{
 			InitializeComponent();
             MainPage = new NavigationPage(new MainView());

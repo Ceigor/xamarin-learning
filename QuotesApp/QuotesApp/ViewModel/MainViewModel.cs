@@ -14,6 +14,7 @@ namespace QuotesApp.ViewModel
         public ICommand NavigateToQuotesCommand { get;  }
         public ICommand NavigateToRestTestCommand { get; }
         public ICommand NavigateToTextToSpeechToTextCommand { get; }
+        public ICommand NavigateToSettingsCommand { get; }
 
         public MainViewModel()
         {
@@ -22,6 +23,7 @@ namespace QuotesApp.ViewModel
             NavigateToQuotesCommand = new Command(async() => await navigationService.NavigateToAsync<QuotesViewModel>());
             NavigateToRestTestCommand = new Command(async () => await navigationService.NavigateToAsync<RestTestViewModel>());
             NavigateToTextToSpeechToTextCommand = new Command(async () => await navigationService.NavigateToAsync<TextToSpeechToTextViewModel>());
+            NavigateToSettingsCommand = new Command(async () => await navigationService.NavigateToAsync<SettingsViewModel>());
         }
 
  

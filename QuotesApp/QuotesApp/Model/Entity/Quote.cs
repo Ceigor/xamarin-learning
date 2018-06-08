@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,8 +8,15 @@ namespace QuotesApp.Model
 
     public class Quote
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string Content { get; set; }
         public string Author { get; set; }
+
+        public Quote()
+        {
+
+        }
 
         public Quote(string content, string author)
         {

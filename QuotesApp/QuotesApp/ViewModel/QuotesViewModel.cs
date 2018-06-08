@@ -25,42 +25,49 @@ namespace QuotesApp.ViewModel
                 RaisePropertyChanged(() => Quotes);
             }
         }
-      
+
 
         public QuotesViewModel(IQuoteService quoteService)
         {
             QuoteService = quoteService;
+            QuoteSelectedCommand = new Command(async (quote) => await GoToQuoteAsync(quote));
+            SetQuotesAsync();
+        }
+
+        private async void SetQuotesAsync()
+        {
+            var quotesFromService = await QuoteService.GetQuotesAsync();
             var quotes = new ObservableCollection<Quote>();
-            QuoteService.GetQuotes().ForEach(quotes.Add);
+            quotesFromService.ForEach(quotes.Add);
             Quotes = quotes;
-            QuoteSelectedCommand = new Command(async (quote) => await QuoteAsync(quote));
         }
 
-        private async Task QuoteAsync(object quote)
+        private async Task GoToQuoteAsync(object quote)
         {
-            if(quote == null)
-            {
+            if (quote == null)
                 return;
-            }
-            await navigationService.NavigateToAsync<QuoteViewModel>(quote);
+            if (!(quote is Quote))
+                    throw InvalidTypeException.CreateExpectedActualException(typeof(Quote), quote?.GetType());
+            await navigationService.NavigateToAsync<QuoteViewModel>((quote as Quote).Id);
         }
 
-        public void SetChanged(object changed)
+        public void SetChanged(object changedQuoteId)
         {
-            if (!(changed is Quote))
-            {
-                InvalidTypeException.CreateExpectedActualException(typeof(Quote), changed?.GetType());
-            }
-            var quote = changed as Quote;
-            var indexOfQuote = quotes.IndexOf(quote);
-            Debug.WriteLine("Index of edited quote = " + indexOfQuote);
-            Debug.WriteLine("Would change quote = " + Quotes[indexOfQuote]);
-            //Quotes[indexOfQuote] = new Quote(quote.Content, quote.Author);
-            /*//TODO learn how to do this correctly!
-            var newQuotes = new ObservableCollection<Quote>();
-            for(int i = 0; i < Quotes.Count; i++)
-                newQuotes.Add(Quotes[i]);
-            Quotes = newQuotes;*/
+            if (!(changedQuoteId is int))
+                InvalidTypeException.CreateExpectedActualException(typeof(int), changedQuoteId?.GetType());
+            SetChangedQuote((int)changedQuoteId);
+        }
+
+        //null hack with listView.SelectedItem = null ....
+        private async void SetChangedQuote(int quoteId)
+        {
+            var changedQuote = await QuoteService.GetQuoteAsync(quoteId);
+            for (int i = 0; i < Quotes.Count; i++)
+                if (Quotes[i] == null || Quotes[i].Id == quoteId)
+                {
+                    Debug.WriteLine(String.Format("Strange, Found Quote['{0}'] = '{1}'", i, Quotes[i]));
+                    Quotes[i] = changedQuote;
+                }
         }
     }
 }

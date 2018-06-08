@@ -29,6 +29,7 @@ namespace QuotesApp.ViewModel.Base
             builder.RegisterType<RestTestViewModel>();
             builder.RegisterType<TextToSpeechToTextViewModel>();
             builder.RegisterType<QuoteViewModel>();
+            builder.RegisterType <SettingsViewModel>();
             container = builder.Build();
         }
 

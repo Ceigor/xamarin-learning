@@ -31,7 +31,7 @@ namespace QuotesApp.Service.Implementation
         private async Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
             Page page = CreatePage(viewModelType);
-            Debug.WriteLine("IInternalNavigateToAsync()");
+            Debug.WriteLine("InternalNavigateToAsync()");
             var navigationPage = Application.Current.MainPage;
             if (navigationPage is NavigationPage)
             {
@@ -57,6 +57,7 @@ namespace QuotesApp.Service.Implementation
             var viewModelAssemblyName = viewModelType.GetTypeInfo().Assembly.FullName;
             var viewFullName = string.Format(CultureInfo.InvariantCulture, "{0}, {1}", viewName, viewModelAssemblyName);
             var viewType = Type.GetType(viewFullName);
+            Debug.WriteLine("View name = " + viewFullName);
             if (viewType == null)
             {
                 throw new NoSuchViewException(viewFullName);

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuotesApp.View.QuotesView"
-             xmlns:view="clr-namespace:QuotesApp.View"
+             xmlns:view="clr-namespace:QuotesApp.View.Custom"
              xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:behavior="clr-namespace:QuotesApp.Behavior"
              xmlns:converter="clr-namespace:QuotesApp.Converter"
@@ -25,7 +25,7 @@
                             <Label Text="{Binding Content}" Style="{StaticResource DescriptionStyle}" HorizontalOptions="CenterAndExpand" />
                             <Label Text="{Binding Author}" Style="{StaticResource TitleStyle}" HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
-                </ViewCell.View>
+                    </ViewCell.View>
                 </view:ExtendedViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

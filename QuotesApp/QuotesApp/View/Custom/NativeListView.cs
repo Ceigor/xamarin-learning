@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace QuotesApp.View
+namespace QuotesApp.View.Custom
 {
     public class NativeListView : ListView
     {

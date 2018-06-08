@@ -8,8 +8,8 @@ using QuotesApp.Service.Abstraction;
 using UIKit;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(QuotesApp.iOS.TextToSpeechService))]
-namespace QuotesApp.iOS
+[assembly: Dependency(typeof(QuotesApp.iOS.Service.TextToSpeechService))]
+namespace QuotesApp.iOS.Service
 {
     public class TextToSpeechService : ITextToSpeechService
     {

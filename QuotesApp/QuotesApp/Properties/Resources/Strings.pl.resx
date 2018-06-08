@@ -150,7 +150,13 @@
   <data name="TextSpeechText" xml:space="preserve">
     <value>Tekst na mowę, mowa na tekst</value>
   </data>
-  <data name="ListViewTest" xml:space="preserve">
-    <value>Testuj ListView</value>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="SettingsTest" xml:space="preserve">
+    <value>Test Ustawień</value>
+  </data>
+  <data name="NothingNewToSave" xml:space="preserve">
+    <value>Nic nowego do zapisania!</value>
   </data>
 </root>

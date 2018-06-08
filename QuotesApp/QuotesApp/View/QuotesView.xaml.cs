@@ -28,7 +28,7 @@ namespace QuotesApp.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Debug.WriteLine("Appearing");
+            Debug.WriteLine("Dissapearing");
             var listView = Content.FindByName<ListView>("QuotesListView");
             listView.SelectedItem = null;
         }

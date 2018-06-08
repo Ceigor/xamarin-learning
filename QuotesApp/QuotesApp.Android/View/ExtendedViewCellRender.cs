@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using QuotesApp.Droid.View;
 using QuotesApp.View;
+using QuotesApp.View.Custom;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

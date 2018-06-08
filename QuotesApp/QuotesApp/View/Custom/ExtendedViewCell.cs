@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
 
-namespace QuotesApp.View
+namespace QuotesApp.View.Custom
 {
     public class ExtendedViewCell : ViewCell
     {

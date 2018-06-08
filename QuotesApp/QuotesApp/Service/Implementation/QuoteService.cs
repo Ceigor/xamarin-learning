@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using QuotesApp.Model;
 using QuotesApp.Service.Abstraction;
+using Xamarin.Forms;
 
 namespace QuotesApp.Service.Implementation
 {
@@ -13,6 +15,17 @@ namespace QuotesApp.Service.Implementation
         public List<Quote> GetQuotes()
         {
             return MockQuotes();
+        }
+
+        public async Task<List<Quote>> GetQuotesAsync()
+        {
+            List<Quote> quotes = await App.Database.GetQuotesAsync();
+            if (quotes == null || quotes.Count < 1)
+            {
+                await App.Database.InsertQuotesAsync(MockQuotes());
+                quotes = await App.Database.GetQuotesAsync();
+            }
+            return quotes;
         }
 
         private List<Quote> MockQuotes()
@@ -37,6 +50,16 @@ namespace QuotesApp.Service.Implementation
         {
             var randomQuote = quotes[RANDOM.Next(0, quotes.Count)];
             return new Quote(randomQuote.Content, randomQuote.Author);
+        }
+
+        public async Task<Quote> GetQuoteAsync(int quoteId)
+        {
+            return await App.Database.GetQuoteAsync(quoteId);
+        }
+
+        public async Task<int> SaveQuoteAsync(Quote quote)
+        {
+            return await App.Database.SaveQuoteAsync(quote);
         }
     }
 }
