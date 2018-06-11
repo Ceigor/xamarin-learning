@@ -18,7 +18,7 @@ namespace QuotesApp.View
 
         private void SetSubscription()
         {
-            MessagingCenter.Subscribe<QuoteViewModel, Quote>(
+            /*MessagingCenter.Subscribe<QuoteViewModel, Quote>(
                this, MessagesKeys.QUOTE_CHANGED, async (sender, arg) =>
                {
                    await DisplayAlert(Properties.Resources.Strings.QuoteUpdated, arg.Content, Properties.Resources.Strings.Ok);
@@ -27,7 +27,7 @@ namespace QuotesApp.View
                this, MessagesKeys.HIDE_DIALOG, async (sender) =>
                {
                   // Content.FindByName
-               });
+               });*/
         }
 
         protected override void OnAppearing()

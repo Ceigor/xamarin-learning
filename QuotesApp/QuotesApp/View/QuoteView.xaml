@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:local ="clr-namespace:QuotesApp"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true"
              xmlns:behavior="clr-namespace:QuotesApp.Behavior"
              x:Class="QuotesApp.View.QuoteView">
     <ContentPage.Content>

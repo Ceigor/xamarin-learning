@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace QuotesApp.ViewModel
 {
-    class QuoteViewModel : BaseViewModel
+    class QuoteViewModel : BaseViewModel, IDetailViewModel
     {
         private Quote initialQuote;
         private Quote quote;
@@ -37,15 +37,6 @@ namespace QuotesApp.ViewModel
             SaveQuoteCommand = new Command(async() => await SaveQuoteAsync());
         }
 
-        public async override Task InitializeAsync(object quoteId)
-        {
-            if(!(quoteId is int))
-                throw InvalidTypeException.CreateExpectedActualException(typeof(int), quote?.GetType());
-            Quote = await QuoteService.GetQuoteAsync((int) quoteId);
-            initialQuote = new Quote(Quote.Content, Quote.Author);
-            initialQuote.Id = Quote.Id;
-            await base.InitializeAsync(quoteId);
-        }
 
         private async Task SaveQuoteAsync()
         {
@@ -61,6 +52,11 @@ namespace QuotesApp.ViewModel
             await navigationService.RemoveCurrentFromBackStackAsync(id);
         }
 
+        public async void SetDetailId(object id)
+        {
+            Debug.WriteLine("Searching quote....");
+            Quote = await QuoteService.GetQuoteAsync((int)id);
+        }
     }
 
 }

@@ -1,6 +1,8 @@
 using QuotesApp.Data;
 using QuotesApp.Service.Abstraction;
 using QuotesApp.View;
+using QuotesApp.View.Factory;
+using QuotesApp.ViewModel;
 using System;
 using System.Diagnostics;
 using Xamarin.Forms;
@@ -28,7 +30,8 @@ namespace QuotesApp
         public App ()
 		{
 			InitializeComponent();
-            MainPage = new NavigationPage(new MainView());
+            MainView mainView = BindedViewFactory.CreateBindedView<MainView, MainViewModel>();
+            MainPage = new NavigationPage(mainView);
         }
 
 		protected override void OnStart ()

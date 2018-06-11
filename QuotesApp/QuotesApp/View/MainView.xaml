@@ -2,11 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:QuotesApp"
-             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:behavior="clr-namespace:QuotesApp.Behavior"
              x:Class="QuotesApp.View.MainView"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true"
+             xmlns:animation="clr-namespace:QuotesApp.Animation"
+             xmlns:trigger="clr-namespace:QuotesApp.Trigger"
+             x:Name="Page"
              Title="QuotesApp">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <animation:AnimationsContainer
+                x:Key="AppearingAnimation"
+                Target="{x:Reference Quotes}">
+                <animation:FadeInAnimation
+                    Direction="Up"
+                    Duration="1500"
+                    Delay="250"/>
+            </animation:AnimationsContainer>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Triggers>
+        <EventTrigger
+            Event= "Appearing">
+            <trigger:BeginAnimation
+                Animation="{StaticResource AppearingAnimation}"/>
+        </EventTrigger>
+    </ContentPage.Triggers>
     <ScrollView>
         <StackLayout>
             <Button Text="{local:Translate Authors}" Style="{StaticResource MenuButtonStyle}">
@@ -19,7 +39,7 @@
                     <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding NavigateToCategoriesCommand}" />
                 </Button.Behaviors>
             </Button>
-            <Button Text="{local:Translate Quotes}" Style="{StaticResource MenuButtonStyle}">
+            <Button x:Name="Quotes" Text="{local:Translate Quotes}" Style="{StaticResource MenuButtonStyle}">
                 <Button.Behaviors>
                     <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding NavigateToQuotesCommand}" />
                 </Button.Behaviors>
@@ -39,11 +59,6 @@
                     <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding NavigateToSettingsCommand}" />
                 </Button.Behaviors>
             </Button>
-             <Button Text="{local:Translate Dialog}" Style="{StaticResource MenuButtonStyle}">
-                <Button.Behaviors>
-                    <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding NavigateToDialogCommand}" />
-                </Button.Behaviors>
-              </Button>
         </StackLayout>
     </ScrollView>
 </ContentPage>

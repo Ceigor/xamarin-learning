@@ -13,5 +13,10 @@ namespace QuotesApp.Exception
         {
 
         }
+
+        public NoSuchViewException(Type viewType) : base("There is no view of type:" + viewType)
+        {
+
+        }
     }
 }

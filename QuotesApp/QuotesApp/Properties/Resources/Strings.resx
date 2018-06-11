@@ -156,6 +156,9 @@
   <data name="SettingsTest" xml:space="preserve">
     <value>Settings Test</value>
   </data>
+  <data name="DialogTest" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
   <data name="NothingNewToSave" xml:space="preserve">
     <value>There is nothing new to save!</value>
   </data>

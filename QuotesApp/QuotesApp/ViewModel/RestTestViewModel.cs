@@ -32,10 +32,10 @@ namespace QuotesApp.ViewModel
         public RestTestViewModel(IHttpService httpService)
         {
             HttpService = httpService;
-            TestRestCommand = new Command(() => Test());
+            TestRestCommand = new Command(async () => await Test());
         }
 
-        private async void Test()
+        private async Task Test()
         {
             Debug.WriteLine("Testing rest!");
             RestTestModels = new ObservableCollection<RestTestModel>(await HttpService.ExecuteGetRequest<List<RestTestModel>>(REST_TEST_URL));

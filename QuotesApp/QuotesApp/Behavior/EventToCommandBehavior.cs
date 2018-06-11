@@ -53,6 +53,7 @@ namespace QuotesApp.Behavior
 
         void RegisterEvent(string name)
         {
+            var watch = Stopwatch.StartNew();
             if (string.IsNullOrWhiteSpace(name))
                 return;
             EventInfo eventInfo = AssociatedObject.GetType().GetRuntimeEvent(name);
@@ -64,6 +65,8 @@ namespace QuotesApp.Behavior
             MethodInfo methodInfo = typeof(EventToCommandBehavior).GetTypeInfo().GetDeclaredMethod("OnEvent");
             eventHandler = methodInfo.CreateDelegate(eventInfo.EventHandlerType, this);
             eventInfo.AddEventHandler(AssociatedObject, eventHandler);
+            watch.Stop();
+            Debug.WriteLine("Registering event of name " + name + " took " + watch.ElapsedMilliseconds + " ms");
         }
 
         void DeregisterEvent(string name)

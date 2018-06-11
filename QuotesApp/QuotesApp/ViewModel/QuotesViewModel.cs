@@ -1,6 +1,8 @@
 ﻿using QuotesApp.Exception;
+using QuotesApp.Message;
 using QuotesApp.Model;
 using QuotesApp.Service.Abstraction;
+using QuotesApp.View;
 using QuotesApp.ViewModel.Base;
 using System;
 using System.Collections.ObjectModel;
@@ -13,8 +15,29 @@ namespace QuotesApp.ViewModel
 {
     class QuotesViewModel : BaseViewModel, IEditableItemViewModel
     {
+        public ICommand HideCommand { get; private set; }
         public ICommand QuoteSelectedCommand { get; private set; }
         private IQuoteService QuoteService;
+        private bool quoteChanged;
+        public bool QuoteChanged
+        {
+            get { return quoteChanged; }
+            private set
+            {
+                quoteChanged = value;
+                RaisePropertyChanged(() => QuoteChanged);
+            }
+        }
+        private Quote changedQuote;
+        public Quote ChangedQuote
+        {
+            get { return changedQuote; }
+            private set
+            {
+                changedQuote = value;
+                RaisePropertyChanged(() => ChangedQuote);
+            }
+        }
         private ObservableCollection<Quote> quotes;
         public ObservableCollection<Quote> Quotes
         {
@@ -26,10 +49,20 @@ namespace QuotesApp.ViewModel
             }
         }
 
+        private void SetSubscription()
+        {
+            MessagingCenter.Subscribe<QuoteViewModel, Quote>(
+               this, MessagesKeys.QUOTE_CHANGED, (sender, arg) =>
+               {
+                   Debug.WriteLine("Same thing using messages!" + arg);
+               });
+        }
+
 
         public QuotesViewModel(IQuoteService quoteService)
         {
             QuoteService = quoteService;
+            HideCommand = new Command(() => QuoteChanged = false);
             QuoteSelectedCommand = new Command(async (quote) => await GoToQuoteAsync(quote));
             SetQuotesAsync();
         }
@@ -48,7 +81,7 @@ namespace QuotesApp.ViewModel
                 return;
             if (!(quote is Quote))
                     throw InvalidTypeException.CreateExpectedActualException(typeof(Quote), quote?.GetType());
-            await navigationService.NavigateToAsync<QuoteViewModel>((quote as Quote).Id);
+            await navigationService.NavigateToAsync<QuoteView, QuoteViewModel>((quote as Quote).Id);
         }
 
         public void SetChanged(object changedQuoteId)
@@ -68,6 +101,8 @@ namespace QuotesApp.ViewModel
                     Debug.WriteLine(String.Format("Strange, Found Quote['{0}'] = '{1}'", i, Quotes[i]));
                     Quotes[i] = changedQuote;
                 }
+            ChangedQuote = changedQuote;
+            QuoteChanged = true;
         }
     }
 }

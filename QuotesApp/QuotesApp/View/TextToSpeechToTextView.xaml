@@ -3,11 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuotesApp.View.TextToSpeechToTextView"
              xmlns:view="clr-namespace:QuotesApp.View"
-             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:behavior="clr-namespace:QuotesApp.Behavior"
              xmlns:converter="clr-namespace:QuotesApp.Converter"
              xmlns:local="clr-namespace:QuotesApp"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true"
              Padding="{StaticResource SmallPadding}"
              Title="{local:Translate TextToSpeechToText}">
     <ContentPage.Content>

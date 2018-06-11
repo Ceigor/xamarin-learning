@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QuotesApp"
+             xmlns:behavior="clr-namespace:QuotesApp.Behavior"
+              BackgroundColor="{StaticResource DialogBackground}"
              x:Class="QuotesApp.View.DialogView">
-  <ContentView.Content>
-        <StackLayout 
-            HeightRequest="175"
-             WidthRequest="300"
-            BackgroundColor="White">
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <Frame CornerRadius="10" Margin="{StaticResource SmallPadding}" HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout 
+            BackgroundColor="White" Padding="{StaticResource SmallPadding}">
+            <Label Text="{local:Translate QuoteUpdated}" Style="{StaticResource TitleStyle}" />
+            <Label Text="{Binding ChangedQuote.Content}" Style="{StaticResource DescriptionStyle}" TextColor="Black"/>
+            <Button Text="{local:Translate Ok}" Style="{StaticResource MenuButtonStyle}">
+                <Button.Behaviors>
+                    <behavior:EventToCommandBehavior EventName="Clicked" Command="{Binding HideCommand}" />
+                </Button.Behaviors>
+            </Button>
+        </StackLayout>
+        </Frame>
+    </ContentView.Content>
 </ContentView>

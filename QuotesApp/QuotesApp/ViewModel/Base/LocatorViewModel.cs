@@ -3,6 +3,7 @@ using QuotesApp.Exception;
 using QuotesApp.Service.Abstraction;
 using QuotesApp.Service.Implementation;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 using Xamarin.Forms;
@@ -50,6 +51,7 @@ namespace QuotesApp.ViewModel.Base
 
         private static void OnAutowireViewModelChanged(BindableObject bindable, object oldValue, object newValue)
         {
+            var watch = Stopwatch.StartNew();
             var view = bindable as Element;
             if(!(bindable is Element))
             {
@@ -58,6 +60,8 @@ namespace QuotesApp.ViewModel.Base
             var viewModelType = GetViewModelFromView(view.GetType());
             var viewModel = container.Resolve(viewModelType);
             view.BindingContext = viewModel;
+            watch.Stop();
+            Debug.WriteLine("Binding view model" + viewModelType +  " to view took" + watch.ElapsedMilliseconds + " ms");
         }
 
         

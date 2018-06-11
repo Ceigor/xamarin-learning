@@ -2,10 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="QuotesApp.View.SettingsView"
-             xmlns:viewModelBase ="clr-namespace:QuotesApp.ViewModel.Base"
              xmlns:local ="clr-namespace:QuotesApp"
-             xmlns:behavior ="clr-namespace:QuotesApp.Behavior"
-             viewModelBase:LocatorViewModel.AutowireViewModel="true">
+             xmlns:behavior ="clr-namespace:QuotesApp.Behavior">
   <ContentPage.Content>
       <StackLayout>
           <Label Text="{local:Translate SettingsTest}" />

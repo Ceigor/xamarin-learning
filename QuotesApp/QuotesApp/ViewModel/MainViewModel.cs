@@ -1,4 +1,5 @@
-﻿using QuotesApp.ViewModel.Base;
+﻿using QuotesApp.View;
+using QuotesApp.ViewModel.Base;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -18,12 +19,12 @@ namespace QuotesApp.ViewModel
 
         public MainViewModel()
         {
-            NavigateToAuthorsCommand = new Command(async () => await navigationService.NavigateToAsync<AuthorsViewModel>());
-            NavigateToCategoriesCommand = new Command(async () => await navigationService.NavigateToAsync<CategoriesViewModel>());
-            NavigateToQuotesCommand = new Command(async() => await navigationService.NavigateToAsync<QuotesViewModel>());
-            NavigateToRestTestCommand = new Command(async () => await navigationService.NavigateToAsync<RestTestViewModel>());
-            NavigateToTextToSpeechToTextCommand = new Command(async () => await navigationService.NavigateToAsync<TextToSpeechToTextViewModel>());
-            NavigateToSettingsCommand = new Command(async () => await navigationService.NavigateToAsync<SettingsViewModel>());
+            NavigateToAuthorsCommand = new Command(async () => await navigationService.NavigateToAsync<AuthorsView, AuthorsViewModel>());
+            NavigateToCategoriesCommand = new Command(async () => await navigationService.NavigateToAsync<CategoriesView, CategoriesViewModel>());
+            NavigateToQuotesCommand = new Command(async() => await navigationService.NavigateToAsync<QuotesView, QuotesViewModel>());
+            NavigateToRestTestCommand = new Command(async () => await navigationService.NavigateToAsync<RestTestView, RestTestViewModel>());
+            NavigateToTextToSpeechToTextCommand = new Command(async () => await navigationService.NavigateToAsync<TextToSpeechToTextView, TextToSpeechToTextViewModel>());
+            NavigateToSettingsCommand = new Command(async () => await navigationService.NavigateToAsync<SettingsView, SettingsViewModel>());
         }
 
  

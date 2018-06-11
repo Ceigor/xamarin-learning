@@ -13,10 +13,5 @@ namespace QuotesApp.ViewModel.Base
         {
             navigationService = LocatorViewModel.Resolve<INavigationService>();
         }
-
-        public virtual Task InitializeAsync(object parameter)
-        {
-            return Task.FromResult(false);
-        }
     }
 }

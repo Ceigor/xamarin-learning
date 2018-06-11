@@ -1,11 +1,8 @@
 ﻿using QuotesApp.Exception;
 using QuotesApp.Service.Abstraction;
-using QuotesApp.ViewModel;
+using QuotesApp.View;
+using QuotesApp.View.Factory;
 using QuotesApp.ViewModel.Base;
-using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,56 +10,20 @@ namespace QuotesApp.Service.Implementation
 {
     class NavigationService : INavigationService
     {
-        public Task InitializeAsync()
+        public async Task NavigateToAsync<View, ViewModel>()
+        where View : Page
+        where ViewModel : BaseViewModel
         {
-            return NavigateToAsync<MainViewModel>();
+            View page = BindedViewFactory.CreateBindedView<View, ViewModel>();
+            await GetMainPage().PushAsync(page);
         }
 
-        public Task NavigateToAsync<ViewModel>() where ViewModel : BaseViewModel
+        public async Task NavigateToAsync<View, ViewModel>(object parameter)
+            where View : Page
+            where ViewModel : BaseViewModel
         {
-            return InternalNavigateToAsync(typeof(ViewModel), null);
-        }
-
-        public Task NavigateToAsync<ViewModel>(object parameter) where ViewModel : BaseViewModel
-        {
-            return InternalNavigateToAsync(typeof(ViewModel), parameter);
-        }
-
-        private async Task InternalNavigateToAsync(Type viewModelType, object parameter)
-        {
-            Page page = CreatePage(viewModelType);
-            Debug.WriteLine("InternalNavigateToAsync()");
-            var navigationPage = Application.Current.MainPage;
-            if (navigationPage is NavigationPage)
-            {
-                Debug.WriteLine("Pushing page = " + page);
-                await ((NavigationPage)navigationPage).PushAsync(page);
-            }
-            else
-            {
-                Debug.WriteLine("Navigation page is equal to null!");
-            }
-            await (page.BindingContext as BaseViewModel).InitializeAsync(parameter);
-        }
-
-        private Page CreatePage(Type viewModelType)
-        {
-            Type pageType = GetPageTypeForViewModel(viewModelType);
-            return Activator.CreateInstance(pageType) as Page;
-        }
-
-        private Type GetPageTypeForViewModel(Type viewModelType)
-        {
-            var viewName = viewModelType.FullName.Replace("Model", string.Empty);
-            var viewModelAssemblyName = viewModelType.GetTypeInfo().Assembly.FullName;
-            var viewFullName = string.Format(CultureInfo.InvariantCulture, "{0}, {1}", viewName, viewModelAssemblyName);
-            var viewType = Type.GetType(viewFullName);
-            Debug.WriteLine("View name = " + viewFullName);
-            if (viewType == null)
-            {
-                throw new NoSuchViewException(viewFullName);
-            }
-            return viewType;
+            View page = BindedViewFactory.CreateBindedView<View, ViewModel>(parameter);
+            await GetMainPage().PushAsync(page);
         }
 
         public Task RemoveCurrentFromBackStackAsync()
@@ -77,6 +38,7 @@ namespace QuotesApp.Service.Implementation
                 throw InvalidTypeException.CreateExpectedActualException(typeof(NavigationPage), Application.Current.MainPage.GetType());
             return mainPage;
         }
+
 
         public Task RemoveCurrentFromBackStackAsync(object data)
         {
